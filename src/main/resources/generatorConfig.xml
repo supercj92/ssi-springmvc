@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <classPathEntry
+        location="D:\.m2\repository\mysql\mysql-connector-java\5.1.30\mysql-connector-java-5.1.30.jar" />
+    <context id="context1" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&amp;characterEncoding=UTF-8"
+            userId="root" password="root" />
+        <javaModelGenerator targetPackage="com.cfysu.model"
+            targetProject="E:\workspace-mine\ssm-springmvc\src\main\java" />
+        <sqlMapGenerator targetPackage="com.cfysu.sqlmap"
+            targetProject="E:\workspace-mine\ssm-springmvc\src\main\resources" />
+        <javaClientGenerator targetPackage="com.cfysu.sqlmap"
+            targetProject="E:\workspace-mine\ssm-springmvc\src\main\java" type="XMLMAPPER" />
+        <table schema="test" tableName="tb_user" />
+    </context>
+</generatorConfiguration>
