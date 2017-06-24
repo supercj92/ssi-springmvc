@@ -1,7 +1,7 @@
 package com.cfysu.service;
 
-import com.cfysu.model.TbUser;
-import com.cfysu.sqlmap.TbUserMapper;
+import com.cfysu.model.User;
+import com.cfysu.sqlmap.UserMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -12,10 +12,10 @@ import javax.annotation.Resource;
 @Service
 public class UserService {
     @Resource
-    private TbUserMapper tbUserMapper;
+    private UserMapper userMapper;
 
-    public TbUser selectByPrimaryKey(Integer primaryKey){
-        return tbUserMapper.selectByPrimaryKey(primaryKey);
+    public User selectByPrimaryKey(Integer primaryKey){
+        return userMapper.selectByPrimaryKey(primaryKey);
     }
 
 }

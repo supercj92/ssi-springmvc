@@ -1,7 +1,7 @@
 package com.cfysu.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.cfysu.model.TbUser;
+import com.cfysu.model.User;
 import com.cfysu.service.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -25,7 +25,7 @@ public class FrontPageController {
 
 	@RequestMapping("/testDB")
 	public void testDB(){
-		TbUser tbUser = userService.selectByPrimaryKey(1);
-		System.out.println(JSON.toJSONString(tbUser));
+		User user = userService.selectByPrimaryKey(1);
+		System.out.println(JSON.toJSONString(user));
 	}
 }
