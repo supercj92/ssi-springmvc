@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -16,7 +17,6 @@ import java.io.PipedReader;
 import java.util.Date;
 
 @Controller
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @RequestMapping("/")
 public class FrontPageController {
 
@@ -28,16 +28,15 @@ public class FrontPageController {
 	public String testIndex(){
 		//LOGGER.info("sssss");
         System.out.print("testIndex:" + new Date());
-		return "test";
+		return "testIndex";
 	}
 
 	@RequestMapping("/testDB")
-	public void testDB(){
+    @ResponseBody
+	public String  testDB(){
 		//User user = userService.selectByPrimaryKey(1);
 		//System.out.println(JSON.toJSONString(user));
+        return "testDB";
 	}
 
-	public static void main(String[] args){
-		SpringApplication.run(FrontPageController.class, args);
-	}
 }
