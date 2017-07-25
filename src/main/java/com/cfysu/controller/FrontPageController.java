@@ -17,7 +17,6 @@ public class FrontPageController {
 	@Resource
 	private UserService userService;
 	@RequestMapping("/testIndex")
-    @ResponseBody
 	public String testIndex(){
 		//LOGGER.info("sssss");
         System.out.print("testIndex:" + new Date());
@@ -30,6 +29,12 @@ public class FrontPageController {
 		User user = userService.selectByPrimaryKey(1);
 		System.out.println(JSON.toJSONString(user));
         return user;
+	}
+
+	@RequestMapping("/toUpload")
+	public String toUpload(){
+
+		return "upload";
 	}
 
 }
