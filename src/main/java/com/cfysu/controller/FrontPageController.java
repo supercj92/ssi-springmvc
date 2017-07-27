@@ -6,10 +6,13 @@ import com.cfysu.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.persistence.Id;
 import java.util.Date;
 
 @Controller
@@ -25,12 +28,10 @@ public class FrontPageController {
 		return "testIndex";
 	}
 
-	@RequestMapping("/testDB")
+	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
     @ResponseBody
-	public User  testDB(){
-		User user = userService.selectByPrimaryKey(1);
-		System.out.println(JSON.toJSONString(user));
-        return user;
+	public User  getUser(@PathVariable Long id){
+        return userService.selectByPrimaryKey(id);
 	}
 
 	@RequestMapping("/insertUser")

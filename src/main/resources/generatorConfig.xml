@@ -9,9 +9,9 @@
             userId="root" password="root" />
         <javaModelGenerator targetPackage="com.cfysu.model"
             targetProject="/home/cj/IdeaProjects/ssm-springmvc/src/main/java" />
-        <sqlMapGenerator targetPackage="com.cfysu.sqlmap"
+        <sqlMapGenerator targetPackage="com.cfysu.dao"
             targetProject="/home/cj/IdeaProjects/ssm-springmvc/src/main//resources" />
-        <javaClientGenerator targetPackage="com.cfysu.sqlmap"
+        <javaClientGenerator targetPackage="com.cfysu.dao"
             targetProject="/home/cj/IdeaProjects/ssm-springmvc/src/main/java" type="XMLMAPPER" />
         <table schema="ssm" tableName="user" />
     </context>

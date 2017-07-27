@@ -1,7 +1,7 @@
 /*
 package com.cfysu;
 
-import com.cfysu.controller.FrontPageController;
+import FrontPageController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ImportResource;

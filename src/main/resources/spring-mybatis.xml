@@ -32,17 +32,27 @@
 		<property name="maxWait" value="${maxWait}"/>
 	</bean>
 
-	<!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+	<!--&lt;!&ndash; spring和MyBatis完美整合，不需要mybatis的配置映射文件 &ndash;&gt;
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<!-- 自动扫描mapping.xml文件 -->
-		<property name="mapperLocations" value="classpath:com/cfysu/sqlmap/*.xml"/>
+		&lt;!&ndash; 自动扫描mapping.xml文件 &ndash;&gt;
+		<property name="mapperLocations" value="classpsqlmappper/*.xml"/>
 	</bean>
 
-	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.cfysu.sqlmap" />
+	&lt;!&ndash; DAO接口所在包名，Spring会自动查找其下的类 &ndash;&gt;
+	<bean class="org.mybatis.sprsqlmappper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.cfysu.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+	</bean>-->
+
+	<!-- ibatis template -->
+	<bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+		<property name="sqlMapClient">
+			<bean class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+				<property name="dataSource" ref="dataSource" />
+				<property name="configLocation" value="classpath:sqlmap-config.xml" />
+			</bean>
+		</property>
 	</bean>
 
 	<!--基于注解的声明式事务-->
@@ -52,5 +62,6 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
+
 
 </beans>
