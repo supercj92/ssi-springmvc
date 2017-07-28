@@ -10,10 +10,10 @@
 		http://www.springframework.org/schema/mvc
     	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-	<context:component-scan base-package="com.cfysu.controller" />
+	<context:component-scan base-package="com.cfysu" />
 	<mvc:resources mapping="/asset/**" location="/asset/"/>
 	<!--注册MessageConverter -->
-	<bean id="mappingJackson2HttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="supportedMediaTypes">
 			<list>
 				<value>text/html;charset=UTF-8</value>
@@ -26,7 +26,7 @@
 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<ref bean="mappingJackson2HttpMessageConverter" />
+				<ref bean="mappingJacksonHttpMessageConverter" />
 			</list>
 		</property>
 	</bean>
