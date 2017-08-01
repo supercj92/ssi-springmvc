@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ssi-springmvc.iml" filepath="$PROJECT_DIR$/ssi-springmvc.iml" />
+      <module fileurl="file://E:\workspace-mine\ssi-springmvc\ssi-springmvc.iml" filepath="E:\workspace-mine\ssi-springmvc\ssi-springmvc.iml" />
+    </modules>
+  </component>
+</project>
