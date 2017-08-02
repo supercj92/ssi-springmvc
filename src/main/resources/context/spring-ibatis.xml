@@ -9,7 +9,7 @@
 	<!-- 引入配置文件 -->
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location" value="classpath:jdbc.properties" />
+		<property name="location" value="classpath:property/jdbc.properties" />
 	</bean>
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
@@ -48,7 +48,7 @@
 		<property name="sqlMapClient">
 			<bean class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
 				<property name="dataSource" ref="dataSource" />
-				<property name="configLocation" value="classpath:sqlmap-config.xml" />
+				<property name="configLocation" value="classpath:context/sqlmap-config.xml" />
 			</bean>
 		</property>
 	</bean>
