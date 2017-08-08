@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Product">
+    <typeAlias alias="product" type="com.cfysu.ssi.model.Product"/>
+    <resultMap id="productResult" class="com.cfysu.ssi.model.Product">
+        <result property="skuId" column="id"/>
+        <result property="productName" column="product_name"/>
+        <result property="stock" column="stock"/>
+        <result property="price" column="price"/>
+    </resultMap>
+    <select id="selectByPrimaryKey" resultMap="productResult" parameterClass="Long">
+        SELECT * FROM product WHERE id = #skuId#
+    </select>
+    <update id="updateStockById" parameterClass="product">
+        UPDATE product SET stock = #stock# WHERE id = #skuId#
+    </update>
+</sqlMap>

@@ -3,15 +3,15 @@ package com.cfysu.ssi.dao;
 /**
  * Created by cj on 2017/7/27.
  */
-public interface BaseDao<E, Q> {
+public interface BaseDao<E> {
 
     E queryForObject(Long id);
 
-    E queryForList(Q query);
+    E queryForList(E entity);
 
     long insert(E entity);
 
-    long update(Q query);
+    int update(E entity);
 
-    long delete(Q query);
+    int delete(E entity);
 }

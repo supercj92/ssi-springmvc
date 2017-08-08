@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="Order">
+    <typeAlias type="com.cfysu.ssi.model.Order" alias="order"/>
+    <resultMap id="orderResult" class="order" >
+        <result column="id" property="orderId" jdbcType="INTEGER" />
+        <result column="custormer_name" property="customerName" jdbcType="VARCHAR" />
+        <result column="skuId" property="skuId" jdbcType="INTEGER" />
+        <result column="num" property="num" jdbcType="INTEGER" />
+    </resultMap>
+
+    <insert id="insert" parameterClass="order">
+        INSERT INTO ssm.ORDER(customer_name,skuId,num) VALUES (#customerName#,#skuId#,#num#)
+        <selectKey>
+            SELECT @@IDENTITY AS id
+        </selectKey>
+    </insert>
+
+</sqlMap>

@@ -83,6 +83,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
@@ -108,11 +109,11 @@
 			<version>${ibatis.version}</version>
 		</dependency>
 		<!-- 导入java ee jar 包 -->
-		<dependency>
+		<!--<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>7.0</version>
-		</dependency>
+			<version>6.0</version>
+		</dependency>-->
 		<!-- 导入Mysql数据库链接jar包 -->
 		<dependency>
 			<groupId>mysql</groupId>

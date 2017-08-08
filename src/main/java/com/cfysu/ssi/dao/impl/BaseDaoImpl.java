@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 /**
  * Created by cj on 2017/7/27.
  */
-public class BaseDaoImpl<E, Q> implements BaseDao<E, Q> {
+public class BaseDaoImpl<E> implements BaseDao<E> {
 
     @Resource
     protected SqlMapClientTemplate sqlMapClientTemplate;
@@ -18,23 +18,24 @@ public class BaseDaoImpl<E, Q> implements BaseDao<E, Q> {
     public void setNameSpace(String nameSpace) {
         this.nameSpace = nameSpace;
     }
+
     public E queryForObject(Long id) {
         return (E)sqlMapClientTemplate.queryForObject(nameSpace + ".selectByPrimaryKey", id);
     }
 
-    public E queryForList(Q query) {
+    public E queryForList(E entity) {
         return null;
     }
 
     public long insert(E entity) {
-        return 0;
+        return (Long)sqlMapClientTemplate.insert(nameSpace + ".insert",entity);
     }
 
-    public long update(Object query) {
-        return 0;
+    public int update(E entity) {
+        return sqlMapClientTemplate.update(nameSpace + "updateById", entity);
     }
 
-    public long delete(Object query) {
+    public int delete(E entity) {
         return 0;
     }
 }

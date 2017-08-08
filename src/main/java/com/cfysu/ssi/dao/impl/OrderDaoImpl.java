@@ -1,19 +1,17 @@
 package com.cfysu.ssi.dao.impl;
 
 import com.cfysu.ssi.dao.BaseDao;
-import com.cfysu.ssi.dao.UserDao;
-import com.cfysu.ssi.model.User;
+import com.cfysu.ssi.dao.OrderDao;
+import com.cfysu.ssi.model.Order;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by cj on 2017/7/27.
+ * Created by cj on 2017/8/8.
  */
-@Repository("userDao")
-public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao ,InitializingBean{
-
+@Repository("orderDao")
+public class OrderDaoImpl extends BaseDaoImpl<Order> implements OrderDao, InitializingBean{
     public void afterPropertiesSet() throws Exception {
-        setNameSpace("User");
+        setNameSpace("Order");
     }
-
 }
