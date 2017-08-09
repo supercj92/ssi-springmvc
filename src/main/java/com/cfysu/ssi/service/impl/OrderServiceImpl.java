@@ -38,10 +38,11 @@ public class OrderServiceImpl implements OrderService {
         return orderDao.insert(order);
     }
 
+    //同时只允许一个线程操作
     @Transactional
-    public Integer pipeOrder(String customerName, Integer skuId, Integer num) {
+    public synchronized Integer pipeOrder(String customerName, Integer skuId, Integer num) {
         Product product = productService.queryProductById(Long.valueOf(skuId));
-        if(num <= product.getStock()){
+        if(num > product.getStock()){
             LOGGER.info("库存不足!下单数量：{}，库存：{}",num,product.getStock());
             return -1;
         }

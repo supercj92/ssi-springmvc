@@ -48,4 +48,9 @@ public class OrderPipeController {
         }
         return null;
     }
+
+    @RequestMapping("/pipeOrder")
+    public String pipeOrderUrlTradition(@PathVariable String customer, @PathVariable Integer skuId, @PathVariable Integer num){
+        return pipeOrder(customer, skuId, num);
+    }
 }
