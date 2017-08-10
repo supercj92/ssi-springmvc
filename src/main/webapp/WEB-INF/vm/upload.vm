@@ -1,0 +1,6 @@
+velocity
+#if(!$user)
+user is null
+#else
+username:$user.userName
+#end

@@ -15,10 +15,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -50,7 +47,8 @@ public class OrderPipeController {
     }
 
     @RequestMapping("/pipeOrder")
-    public String pipeOrderUrlTradition(@PathVariable String customer, @PathVariable Integer skuId, @PathVariable Integer num){
+    @ResponseBody
+    public String pipeOrderUrlTradition(@RequestParam String customer, @RequestParam Integer skuId, @RequestParam Integer num){
         return pipeOrder(customer, skuId, num);
     }
 }

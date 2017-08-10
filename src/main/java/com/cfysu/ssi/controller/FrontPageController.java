@@ -6,6 +6,7 @@ import com.cfysu.ssi.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,9 +29,10 @@ public class FrontPageController {
 	}
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
-    @ResponseBody
-	public User  getUser(@PathVariable Long id){
-        return userService.selectByPrimaryKey(id);
+	public String  getUser(@PathVariable Long id, Model model){
+		User user = userService.selectByPrimaryKey(id);
+		model.addAttribute("user",user);
+		return "upload";
 	}
 
 	@RequestMapping("/insertUser")
@@ -44,9 +46,4 @@ public class FrontPageController {
 		return "ok";
 	}
 
-	@RequestMapping("/toUpload")
-	public String toUpload(){
-
-		return "upload";
-	}
 }
