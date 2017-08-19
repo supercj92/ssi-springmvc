@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -62,8 +63,9 @@ public class FrontPageController {
 
 	@RequestMapping("/upload")
 	@ResponseBody
-	public String uploadFile(MultipartFile file){
+	public String uploadFile(@RequestParam(value = "Filedata") MultipartFile file){
 		if(file == null){
+			LOGGER.info("上传文件为空");
 			return "文件为空";
 		}
 		LOGGER.info("fileName:{}", file.getOriginalFilename());
@@ -74,6 +76,7 @@ public class FrontPageController {
 			e.printStackTrace();
 			return "fail";
 		}
+		LOGGER.info("上传成功");
 		return "success";
 	}
 

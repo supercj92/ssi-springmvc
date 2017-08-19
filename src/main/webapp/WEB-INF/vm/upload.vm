@@ -4,12 +4,13 @@ user is null
 #else
 username:$user.userName
 #end
-<link type="text/css" href="/asset/js/lib/uploadify/uploadify.css">
+<link type="text/css" href="/asset/js/lib/uploadify/uploadify.css" rel="stylesheet">
+<p>-----------------form 上传----------------------</p>
 <form action="/upload" enctype="multipart/form-data" method="post">
     <input type="file" name="file">
     <input type="submit" value="submit">
 </form>
-<p>uploadify demo</p>
+<p>------------------uploadify demo------------------</p>
 <div id="queue"></div>
 <input id="file-upload" name="file-upload" type="file" multiple="true">
 <button id="beginUpload">beginUpload</button>
