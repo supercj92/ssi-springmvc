@@ -51,33 +51,4 @@ public class FrontPageController {
 		userService.insert(user);
 		return "ok";
 	}
-
-	/**
-	 * 上传文件
-	 * @return
-	 */
-	@RequestMapping("/toUpload")
-	public String toUpload(){
-		return "upload";
-	}
-
-	@RequestMapping("/upload")
-	@ResponseBody
-	public String uploadFile(@RequestParam(value = "Filedata") MultipartFile file){
-		if(file == null){
-			LOGGER.info("上传文件为空");
-			return "文件为空";
-		}
-		LOGGER.info("fileName:{}", file.getOriginalFilename());
-		URL url = FrontPageController.class.getClassLoader().getResource("/");
-		try {
-			file.transferTo(new File(url.getPath() + File.separator + file.getOriginalFilename()));
-		} catch (IOException e) {
-			e.printStackTrace();
-			return "fail";
-		}
-		LOGGER.info("上传成功");
-		return "success";
-	}
-
 }
