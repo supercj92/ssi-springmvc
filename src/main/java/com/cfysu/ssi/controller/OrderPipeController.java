@@ -15,6 +15,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -50,5 +51,11 @@ public class OrderPipeController {
     @ResponseBody
     public String pipeOrderUrlTradition(@RequestParam String customer, @RequestParam Integer skuId, @RequestParam Integer num){
         return pipeOrder(customer, skuId, num);
+    }
+
+    @RequestMapping("/empty")
+    public String empty(Model model){
+        model.addAttribute("flag", "1");
+        return "";
     }
 }
