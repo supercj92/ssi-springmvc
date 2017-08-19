@@ -4,3 +4,16 @@ user is null
 #else
 username:$user.userName
 #end
+<link type="text/css" href="/asset/js/lib/uploadify/uploadify.css">
+<form action="/upload" enctype="multipart/form-data" method="post">
+    <input type="file" name="file">
+    <input type="submit" value="submit">
+</form>
+<p>uploadify demo</p>
+<div id="queue"></div>
+<input id="file-upload" name="file-upload" type="file" multiple="true">
+<button id="beginUpload">beginUpload</button>
+<button id="cancel">cancel</button>
+<script src="https://cdn.bootcss.com/jquery/1.7.1/jquery.min.js"></script>
+<script type="application/javascript" src="/asset/js/lib/uploadify/jquery.uploadify.min.js"></script>
+<script type="application/javascript" src="/asset/js/myFileUpload.js"></script>
