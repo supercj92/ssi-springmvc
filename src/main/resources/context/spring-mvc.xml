@@ -46,8 +46,11 @@
 
 	<!-- springmvc 拦截器配置 -->
 	<mvc:interceptors>
+		<!--拦截所有请求-->
+		<bean class = "com.cfysu.ssi.intercepter.LoginIntercepter"/>
 		<mvc:interceptor>
 			<mvc:mapping path="/*"/>
+			<!--根据路径部分拦截-->
 			<bean class = "com.cfysu.ssi.intercepter.LoginIntercepter"/>
 		</mvc:interceptor>
 	</mvc:interceptors>

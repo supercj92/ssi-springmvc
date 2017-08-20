@@ -35,7 +35,7 @@ public class LoginIntercepter implements HandlerInterceptor{
 		}else {
 			LOGGER.info("user is online");
 		}
-		return false;
+		return true;
 	}
 
 }
