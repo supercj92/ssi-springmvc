@@ -44,6 +44,7 @@
 		<property name="suffix" value=".vm" />
 	</bean>
 
+	<!-- springmvc 拦截器配置 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*"/>

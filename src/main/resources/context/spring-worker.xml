@@ -13,11 +13,11 @@
     http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">  
   
     <task:annotation-driven /> <!-- 定时器开关-->  
-  
-    <task:scheduled-tasks>
-        <!--  
+  	<!-- 使用注解的方式配置定时器 -->
+    <!-- <task:scheduled-tasks>
+         
             这里表示的是每隔五秒执行一次  
-        -->  
+         
         <task:scheduled ref="springTimer" method="print" cron="*/5 * * * * ?" />  
-    </task:scheduled-tasks>  
+    </task:scheduled-tasks>   -->
 </beans>  
