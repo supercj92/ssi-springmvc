@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置JMS连接工厂 -->
+    <bean id="providerConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <property name="brokerURL" value="failover:(tcp://192.168.147.131:61616)" />
+        <property name="useAsyncSend" value="true" />
+        <property name="clientID" value="providerClienctConnect" />
+    </bean>
+
+    <!-- 定义消息Destination -->
+    <bean id="topicDestination"  class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg value="testSpringTopic"/>
+    </bean>
+
+    <!-- 消息发送者客户端 -->
+    <bean id="providerJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+        <property name="connectionFactory" ref="providerConnectionFactory" />
+        <property name="defaultDestination" ref="topicDestination" />
+        <!-- 开启订阅模式 -->
+        <property name="pubSubDomain" value="true"/>
+        <property name="receiveTimeout" value="10000" />
+        <!-- deliveryMode, priority, timeToLive 的开关要生效，必须配置为true，默认false-->
+        <property name="explicitQosEnabled" value="true"/>
+        <!-- 发送模式
+             DeliveryMode.NON_PERSISTENT=1:非持久 ;
+             DeliveryMode.PERSISTENT=2:持久
+        -->
+        <property name="deliveryMode" value="1"/>
+    </bean>
+
+</beans>

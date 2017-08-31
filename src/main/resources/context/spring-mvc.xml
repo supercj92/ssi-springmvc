@@ -44,6 +44,16 @@
 		<property name="suffix" value=".vm" />
 	</bean>
 
+	<!-- springmvc 拦截器配置 -->
+	<mvc:interceptors>
+		<!--拦截所有请求-->
+		<bean class = "com.cfysu.ssi.intercepter.LoginIntercepter"/>
+		<mvc:interceptor>
+			<mvc:mapping path="/*"/>
+			<!--根据路径部分拦截-->
+			<bean class = "com.cfysu.ssi.intercepter.LoginIntercepter"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 
 	<!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
 	<bean id="multipartResolver"
