@@ -7,7 +7,7 @@
 
     <!-- 配置JMS连接工厂 -->
     <bean id="consumerConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-        <property name="brokerURL" value="failover:(tcp://192.168.147.131:61616)" />
+        <property name="brokerURL" value="failover:(tcp://localhost:61616)" />
         <property name="useAsyncSend" value="true" />
         <property name="clientID" value="consumerClienctConnect" />
     </bean>
@@ -18,7 +18,7 @@
     </bean>
 
     <!-- 配置消息消费监听者 -->
-    <bean id="consumerMessageListener" class="com.mq.spring.topic.ConsumerMessageListener" />
+    <bean id="consumerMessageListener" class="com.cfysu.ssi.jms.CustomerMessageListener" />
 
     <!-- 消息订阅客户端1 -->
     <bean id="consumerListenerClient1" class="org.springframework.jms.listener.DefaultMessageListenerContainer">

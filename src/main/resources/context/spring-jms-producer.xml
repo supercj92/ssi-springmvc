@@ -6,7 +6,7 @@
 
     <!-- 配置JMS连接工厂 -->
     <bean id="providerConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-        <property name="brokerURL" value="failover:(tcp://192.168.147.131:61616)" />
+        <property name="brokerURL" value="failover:(tcp://localhost:61616)" />
         <property name="useAsyncSend" value="true" />
         <property name="clientID" value="providerClienctConnect" />
     </bean>

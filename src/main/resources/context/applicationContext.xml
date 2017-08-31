@@ -9,6 +9,9 @@
 
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.cfysu" />
-    <import resource="classpath:context/spring-ibatis.xml"></import>
-    <import resource="classpath:context/spring-worker.xml"></import>
+    <import resource="classpath:context/spring-ibatis.xml"/>
+    <import resource="classpath:context/spring-worker.xml"/>
+    <!--jms-->
+    <import resource="classpath:context/spring-jms-producer.xml"/>
+    <import resource="classpath:context/spring-jms-customer.xml"/>
 </beans>

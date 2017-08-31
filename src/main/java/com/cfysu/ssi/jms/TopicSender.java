@@ -19,7 +19,7 @@ import javax.jms.*;
  * @version 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:spring-topic.xml"})
+@ContextConfiguration(locations={"classpath:context/spring-jms-producer.xml"})
 public class TopicSender {
 
     @Resource(name = "providerJmsTemplate")
