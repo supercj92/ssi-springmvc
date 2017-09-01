@@ -9,9 +9,16 @@
 
     <!-- 自动扫描 -->
     <context:component-scan base-package="com.cfysu" />
+
+    <!--加载配置-->
+    <context:property-placeholder location="classpath:property/jdbc.properties" ignore-unresolvable="true" />
+    <context:property-placeholder location="classpath:property/redis.properties" ignore-unresolvable="true" />
+
     <import resource="classpath:context/spring-ibatis.xml"/>
     <import resource="classpath:context/spring-worker.xml"/>
     <!--jms-->
-    <import resource="classpath:context/spring-jms-producer.xml"/>
-    <import resource="classpath:context/spring-jms-customer.xml"/>
+    <import resource="classpath:context/spring-activemq-producer.xml"/>
+    <import resource="classpath:context/spring-activemq-customer.xml"/>
+    <!--cache-->
+    <import resource="classpath:context/spring-redis.xml"/>
 </beans>

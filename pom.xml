@@ -246,6 +246,24 @@
 			<artifactId>spring-jms</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<!--hessian依赖-->
+		<dependency>
+			<groupId>com.caucho</groupId>
+			<artifactId>hessian</artifactId>
+			<version>4.0.7</version>
+		</dependency>
+		<!--先将lib目录里的jar打到本地仓库-->
+		<dependency>
+			<groupId>com.cfysu</groupId>
+			<artifactId>hessian-client</artifactId>
+			<version>0.1</version>
+		</dependency>
+		<!--redis-->
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>2.8.0</version>
+		</dependency>
 	</dependencies>
   <build>
     <finalName>ssi-springmvc</finalName>
