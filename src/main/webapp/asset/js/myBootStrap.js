@@ -1,5 +1,9 @@
 $(function () {
     $(".btn.btn-lg.btn-default").click(function () {
-        $(".modal.fade").modal({});
+        $("#exampleModal").modal("show");
+    });
+    $(".btn.btn-primary").click(function () {
+        console.log($(".modal-body").text());
+        $(".modal.fade").modal("hide");
     });
 });

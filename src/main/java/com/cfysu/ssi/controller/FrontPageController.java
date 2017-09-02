@@ -26,13 +26,28 @@ import java.util.Date;
 public class FrontPageController {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(FrontPageController.class);
+
+	//count是多个请求共享的，因为controller是singleton的
+	private Integer count = 0;
+
 	@Resource
 	private UserService userService;
+
 	@RequestMapping("/testIndex")
+	@ResponseBody
 	public String testIndex(){
-		//LOGGER.info("sssss");
+		try {
+			LOGGER.info("---------before sleep:{}--------threadId:{}", count, Thread.currentThread().getId());
+			//模拟耗时操作
+			Thread.sleep(10000);
+			LOGGER.info("---------after sleep:{}--------threadId:{}", count, Thread.currentThread().getId());
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		//改变成员变量
+		count++;
         System.out.print("testIndex:" + new Date());
-		return "testIndex";
+		return "index";
 	}
 
 	@RequestMapping(value = "/user/{id}", method = RequestMethod.GET)
