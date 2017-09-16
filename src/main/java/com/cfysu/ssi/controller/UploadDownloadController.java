@@ -53,6 +53,7 @@ public class UploadDownloadController {
     @RequestMapping("/download")
     public ResponseEntity<byte[]> download(){
         URL url = UploadDownloadController.class.getClassLoader().getResource("/");
+        LOGGER.info("path:" + url.getPath());
         File log4jFile = new File(url.getPath() + File.separator + "log4j.xml");
         LOGGER.info("filePath:{}", log4jFile.getAbsoluteFile());
         byte[] fileBytes = null;
