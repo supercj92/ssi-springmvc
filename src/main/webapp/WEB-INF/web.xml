@@ -64,7 +64,18 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>hessianServiceExporter</servlet-name>
+    <servlet>
+        <servlet-name>AsyncServlet</servlet-name>
+        <servlet-class>com.cfysu.ssi.servlet.AsyncServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+		<servlet-name>hessian-service</servlet-name>
 		<url-pattern>/hessian</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>AsyncServlet</servlet-name>
+        <url-pattern>/AsyncServlet</url-pattern>
+    </servlet-mapping>
 
 </web-app>
