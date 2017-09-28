@@ -1,6 +1,6 @@
 package com.cfysu.ssi.servlet;
 
-import javax.servlet.AsyncContext;
+//import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +15,7 @@ public class AsyncServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         final PrintWriter writer = response.getWriter();
         writer.println("老板布置任务...");
-        AsyncContext asyncContext = request.startAsync();
+        /*AsyncContext asyncContext = request.startAsync();
         asyncContext.setTimeout(1000*10L);
         asyncContext.start(new Runnable() {
             public void run() {
@@ -28,7 +28,7 @@ public class AsyncServlet extends HttpServlet {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
         writer.println("老板离开...");
     }
 

@@ -1,3 +1,4 @@
 target/
 /.idea/
 /ssi-springmvc.iml
+/src/main/webapp/WEB-INF/lib/
