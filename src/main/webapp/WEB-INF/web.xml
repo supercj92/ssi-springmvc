@@ -57,30 +57,13 @@
 
 	<!--hessian 配置-->
 	<servlet>
-		<servlet-name>hessian-service</servlet-name>
-
+		<servlet-name>hessianServiceExporter</servlet-name>
 		<servlet-class>
-			com.caucho.hessian.server.HessianServlet
+			org.springframework.web.context.support.HttpRequestHandlerServlet
 		</servlet-class>
-
-		<init-param>
-			<param-name>home-class</param-name>
-			<param-value>
-				<!-- 服务实现类 -->
-				com.cfysu.ssi.rpc.HessianServerServiceImpl
-			</param-value>
-		</init-param>
-
-		<init-param>
-			<param-name>home-api</param-name>
-			<!-- 服务接口 -->
-			<param-value>com.test.hessian.service.HelloService</param-value>
-		</init-param>
-
 	</servlet>
-
 	<servlet-mapping>
-		<servlet-name>hessian-service</servlet-name>
+		<servlet-name>hessianServiceExporter</servlet-name>
 		<url-pattern>/hessian</url-pattern>
 	</servlet-mapping>
 

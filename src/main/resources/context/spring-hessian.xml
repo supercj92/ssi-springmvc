@@ -3,4 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean name="hessianServiceExporter" class="org.springframework.remoting.caucho.HessianServiceExporter">
+        <!-- service的ref与HelloServiceImpl中@Service中配置的一致 -->
+        <property name="service" ref="hessianServerServiceImpl" />
+        <!-- 接口的路径 -->
+        <property name="serviceInterface" value="com.test.hessian.service.HelloService" />
+    </bean>
 </beans>
