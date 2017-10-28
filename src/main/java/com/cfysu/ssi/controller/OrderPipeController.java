@@ -1,20 +1,10 @@
 package com.cfysu.ssi.controller;
 
-import com.cfysu.ssi.dao.ProductDao;
-import com.cfysu.ssi.model.Order;
-import com.cfysu.ssi.model.Product;
 import com.cfysu.ssi.service.OrderService;
 import com.cfysu.ssi.service.ProductService;
-import com.sun.org.apache.xpath.internal.operations.Or;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.support.TransactionCallback;
-import org.springframework.transaction.support.TransactionTemplate;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
