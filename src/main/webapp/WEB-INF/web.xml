@@ -70,6 +70,7 @@
     <servlet>
         <servlet-name>AsyncServlet</servlet-name>
         <servlet-class>com.cfysu.ssi.servlet.AsyncServlet</servlet-class>
+		<async-supported>true</async-supported>
     </servlet>
 	<servlet-mapping>
         <servlet-name>AsyncServlet</servlet-name>

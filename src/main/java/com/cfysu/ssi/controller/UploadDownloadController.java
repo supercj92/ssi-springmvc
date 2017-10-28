@@ -7,6 +7,8 @@ import java.net.URL;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.EnvironmentAware;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,9 +21,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/file")
-public class UploadDownloadController {
+public class UploadDownloadController implements EnvironmentAware{
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UploadDownloadController.class);
+    private Environment environment;
     /**
      *上传文件
      * @return
@@ -67,5 +70,9 @@ public class UploadDownloadController {
         headers.setContentDispositionFormData("attachment", log4jFile.getName());
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
         return new ResponseEntity<byte[]>(fileBytes, headers, HttpStatus.CREATED);
+    }
+
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
     }
 }
