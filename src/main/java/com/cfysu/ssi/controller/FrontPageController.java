@@ -2,6 +2,7 @@ package com.cfysu.ssi.controller;
 
 import com.cfysu.ssi.model.User;
 import com.cfysu.ssi.service.UserService;
+import com.cfysu.ssi.util.PageResult;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -65,5 +66,18 @@ public class FrontPageController {
 		user.setPwd("456");
 		userService.insert(user);
 		return "ok";
+	}
+
+	@RequestMapping("/listUser")
+	public String listUser(User user, Model model){
+
+		if(user.getPageNum() ==0 && user.getPageSize() == 0){
+			user.setPageNum(1);
+			user.setPageSize(10);
+		}
+
+		PageResult pageResult = userService.queryByPage(user);
+		model.addAttribute("pageResult", pageResult);
+		return "listUser";
 	}
 }

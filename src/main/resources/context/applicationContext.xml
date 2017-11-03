@@ -17,8 +17,8 @@
     <import resource="classpath:context/spring-ibatis.xml"/>
     <import resource="classpath:context/spring-worker.xml"/>
     <!--jms-->
-    <import resource="classpath:context/spring-activemq-producer.xml"/>
-    <import resource="classpath:context/spring-activemq-customer.xml"/>
+    <!--<import resource="classpath:context/spring-activemq-producer.xml"/>-->
+    <!--<import resource="classpath:context/spring-activemq-customer.xml"/>-->
     <!--cache-->
     <import resource="classpath:context/spring-redis.xml"/>
     <!--hessian-->

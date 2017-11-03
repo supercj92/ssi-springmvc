@@ -41,6 +41,13 @@
         </filter>
     </appender>
 
+    <logger name="java.sql.Connection" additivity="true">
+        <level value="DEBUG"/>
+    </logger>
+    <logger name="java.sql.Statement" additivity="true">
+        <level value="DEBUG"/>
+    </logger>
+
     <root>
         <level value="info"/>
         <appender-ref ref="console"/>

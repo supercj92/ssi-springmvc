@@ -1,6 +1,8 @@
 package com.cfysu.ssi.model;
 
-public class User {
+import com.cfysu.ssi.util.PaginationInfo;
+
+public class User extends PaginationInfo{
 
     private Integer id;
 

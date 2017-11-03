@@ -4,6 +4,7 @@ import com.cfysu.ssi.dao.BaseDao;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by cj on 2017/7/27.
@@ -23,8 +24,13 @@ public class BaseDaoImpl<E> implements BaseDao<E> {
         return (E)sqlMapClientTemplate.queryForObject(nameSpace + ".selectByPrimaryKey", id);
     }
 
-    public E queryForList(E entity) {
-        return null;
+    public List<E> queryByList(E entity) {
+        return sqlMapClientTemplate.queryForList(nameSpace + ".pageList", entity);
+    }
+
+    @Override
+    public Integer getCount(E entity) {
+        return (Integer) sqlMapClientTemplate.queryForObject(nameSpace + ".pageCount",entity);
     }
 
     public long insert(E entity) {
