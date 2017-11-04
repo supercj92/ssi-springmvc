@@ -2,3 +2,4 @@ target/
 /.idea/
 /ssi-springmvc.iml
 /src/main/webapp/WEB-INF/lib/
+将删除 src/main/webapp/WEB-INF/classes/

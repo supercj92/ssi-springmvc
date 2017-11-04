@@ -7,7 +7,7 @@
             <li><a class="current">第${pageNum}/${totalPage}页</a></li>
             <li><a>共${totalCount}条记录</a></li>
             <#if pageNum gt 1 >
-                <li><a href="javascript:void(0)">上一页</a></li>
+                <li><a href="javascript:void(0)" onclick="pageControl(${(pageNum - 1)!})">上一页</a></li>
             <#else>
                 <li class="disabled"><a>上一页</a></li>
             </#if>
@@ -17,8 +17,8 @@
         <#--如果当前页大于4则显示前两页和省略号-->
             <#if (pageNum > 4)>
                 <#assign start=(pageNum - 1)>
-                <li><a href="javascript:void(0)">1</a></li>
-                <li><a href="javascript:void(0)">2</a></li>
+                <li><a href="javascript:void(0)" onclick="pageControl(1)">1</a></li>
+                <li><a href="javascript:void(0)" onclick="pageControl(2)">2</a></li>
                 <li class="disabled"><a>&hellip;</a></li>
             </#if>
         <#-- 显示当前页号和前后的页号 -->
@@ -33,7 +33,7 @@
                 <#if (pageNum==i)>
                     <li class="disabled"><a>${i}</a></li>
                 <#else>
-                    <li><a href="javascript:void(0)">${i}</a></li>
+                    <li><a href="javascript:void(0)" onclick="pageControl(${i})">${i}</a></li>
                 </#if>
             </#list>
 
@@ -42,15 +42,15 @@
                 <li class="disabled"><a>&hellip;</a></li>
             </#if>
             <#if (end < totalPage - 1)>
-                <li><a href="javascript:void(0)">${totalPage-1}</a></li>
+                <li><a href="javascript:void(0)" onclick="pageControl(${totalPage-1})">${totalPage-1}</a></li>
             </#if>
             <#if (end < totalPage)>
-                <li><a href="javascript:void(0)">${totalPage}</a></li>
+                <li><a href="javascript:void(0)" ${totalPage}>${totalPage}</a></li>
             </#if>
         <#-- 数字end-->
 
             <#if pageNum lt totalPage>
-                <li><a href="javascript:void(0)">下一页</a></li>
+                <li><a href="javascript:void(0)" onclick="pageControl(${(pageNum + 1)!})">下一页</a></li>
             <#else>
                 <li class="disabled"><a>下一页</a></li>
             </#if>

@@ -10,6 +10,12 @@ public class User extends PaginationInfo{
 
     private String pwd;
 
+    public User(){}
+
+    public User(int pageNum, int totalCount, int pageSize){
+        super(pageNum, totalCount, pageSize);
+    }
+
     public Integer getId() {
         return id;
     }

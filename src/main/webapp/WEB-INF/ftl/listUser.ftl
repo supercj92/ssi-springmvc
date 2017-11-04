@@ -24,7 +24,17 @@
             <tr style="text-align:right;"><td colspan="3"><@showPageInfoWithNum pageResult.paginationInfo/></td></tr>
         </table>
     </div>
+    <form id="pageForm" action="/listUser" method="post">
+        <input type="hidden" name="pageSize" value="${(pageResult.paginationInfo.pageSize)!}">
+        <input type="hidden" id="pageNum" name="pageNum" value="${(pageResult.paginationInfo.pageNum)!}">
+    </form>
     <script type="text/javascript" src="/asset/js/lib/jquery1.12.4.min.js"></script>
     <script type="text/javascript" src="/asset/js/lib/bootstrap/bootstrap.min.js"></script>
+    <script>
+        function pageControl (pageNum) {
+            $('#pageNum').val(pageNum);
+            $('#pageForm').submit();
+        }
+    </script>
 </body>
 </html>
