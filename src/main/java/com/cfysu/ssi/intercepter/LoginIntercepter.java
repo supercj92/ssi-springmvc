@@ -1,5 +1,6 @@
 package com.cfysu.ssi.intercepter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -30,6 +31,11 @@ public class LoginIntercepter implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
 			Object object) throws Exception {
 		User user = (User)request.getSession().getAttribute("userName");
+		LOGGER.info("sessionId:{}", request.getSession().getId());
+
+		//设置cookie
+		response.addCookie(new Cookie("cookie-key", "cookie-value"));
+
 		if(user == null){
 			LOGGER.info("userName is null");
 		}else {
