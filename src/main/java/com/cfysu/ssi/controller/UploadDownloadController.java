@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 @RequestMapping("/file")
 public class UploadDownloadController implements EnvironmentAware{
@@ -36,13 +38,15 @@ public class UploadDownloadController implements EnvironmentAware{
 
     @RequestMapping("/upload")
     @ResponseBody
-    public String uploadFile(@RequestParam(value = "Filedata") MultipartFile file){
+    public String uploadFile(@RequestParam(value = "file", required = false) MultipartFile file, HttpServletRequest request){
         if(file == null){
             LOGGER.info("文件为空");
             return "文件为空";
         }
         LOGGER.info("fileName:{}", file.getOriginalFilename());
         URL url = FrontPageController.class.getClassLoader().getResource("/");
+        String path = request.getServletContext().getRealPath("/asset") + File.separator;
+        LOGGER.info("realPath:" + path);
         try {
             file.transferTo(new File(url.getPath() + File.separator + file.getOriginalFilename()));
         } catch (IOException e) {
