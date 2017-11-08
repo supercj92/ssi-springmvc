@@ -37,7 +37,9 @@ public class UserServiceImpl implements UserService{
 
         Integer totalCount = userDao.getCount(user);
 
-        List<User> userList = userDao.queryByList(user);
+        User userQuery = new User(user.getPageNum(), totalCount, user.getPageSize());
+
+        List<User> userList = userDao.queryByList(userQuery);
 
         pageResult.setResList(userList);
 

@@ -72,9 +72,9 @@ public class PaginationInfo{
             }
 
             endRow = pageNum * pageSize;
-            if(endRow > totalCount){
-                endRow = totalCount;
-            }
+//            if(endRow > totalCount){
+//                endRow = totalCount;
+//            }
 
             startRow = endRow - pageSize;
             if(startRow < 0){

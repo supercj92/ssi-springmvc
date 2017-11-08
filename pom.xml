@@ -15,10 +15,10 @@
 
 	<properties>
 		<!-- spring版本号 -->
-		<!--<spring.version>3.1.1.RELEASE</spring.version>-->
-		<spring.version>4.3.8.RELEASE</spring.version>
+		<spring.version>3.1.1.RELEASE</spring.version>
+		<!--<spring.version>4.3.8.RELEASE</spring.version>-->
 		<!-- mybatis版本号 -->
-		<mybatis.version>3.2.6</mybatis.version>
+		<!--<mybatis.version>3.2.6</mybatis.version>-->
 		<ibatis.version>2.3.4.726</ibatis.version>
 		<!-- log4j日志文件管理包版本 -->
 		<slf4j.version>1.7.7</slf4j.version>
@@ -95,17 +95,17 @@
 			<version>3.1.1.RELEASE</version>
 		</dependency>
 		<!-- mybatis核心包 -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis</artifactId>
-			<version>${mybatis.version}</version>
-		</dependency>
-		<!-- mybatis/spring包 -->
-		<dependency>
-			<groupId>org.mybatis</groupId>
-			<artifactId>mybatis-spring</artifactId>
-			<version>1.2.2</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.mybatis</groupId>-->
+			<!--<artifactId>mybatis</artifactId>-->
+			<!--<version>${mybatis.version}</version>-->
+		<!--</dependency>-->
+		<!--&lt;!&ndash; mybatis/spring包 &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.mybatis</groupId>-->
+			<!--<artifactId>mybatis-spring</artifactId>-->
+			<!--<version>1.2.2</version>-->
+		<!--</dependency>-->
 		<dependency>
 			<groupId>org.apache.ibatis</groupId>
 			<artifactId>ibatis-sqlmap</artifactId>
