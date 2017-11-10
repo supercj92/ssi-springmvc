@@ -1,9 +1,11 @@
 package com.cfysu.ssi.util;
 
+import java.io.Serializable;
+
 /**
  * 分页工具
  */
-public class PaginationInfo{
+public class PaginationInfo implements Serializable{
 
     /**
      * 第几页

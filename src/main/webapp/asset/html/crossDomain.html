@@ -2,22 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>跨域请求</title>
 </head>
 <body>
-<button id="postBtn" value="postBtn"></button>
+<button id="postBtn" value="postBtn">cors接口</button>
+<button id="postBtnJsonp" value="postBtn">jsonp接口</button>
 <script type="text/javascript" src="../js/lib/jquery-1.11.1.js"></script>
 <script>
     $(function () {
         $("#postBtn").click(function () {
             $.ajax({
-                url: "http://127.0.0.1/countryec/settlement/batchRejectBill",
-                data: {ceSettlementBillIds: 1, status: 20, remark: "test"},
-                type: "POST",
-                dataType: "json",
+                url: "http://www.cfysu.com:8080/user/1",
+                type: "GET",
+                dataType : "json",
                 success: function (data) {
-                    alert(data.resultMsg);
-                    console.log("data:" + data);
+                    //alert(data.resultMsg);
+                    console.log(data);
+                }
+            });
+//            $.get("http://www.cfysu.com:8080/qrCode",function (data) {
+//                console.log(data);
+//            });
+        });
+        $("#postBtnJsonp").bind("click", function () {
+            $.ajax({
+                url : "http://www.cfysu.com:8080/jsonp/user/1",
+                type : "GET",
+                dataType : "jsonp",
+                success : function (data) {
+                    console.log(data);
+                },
+                error : function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("error:");
+                    console.log(XMLHttpRequest);
+                    console.log(textStatus);
+                    console.log(errorThrown);
                 }
             });
         });
