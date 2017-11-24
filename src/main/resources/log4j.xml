@@ -41,10 +41,10 @@
         </filter>
     </appender>
 
-    <logger name="java.sql.Connection" additivity="true">
+    <logger name="java.sql.Connection" additivity="false">
         <level value="DEBUG"/>
     </logger>
-    <logger name="java.sql.Statement" additivity="true">
+    <logger name="java.sql.Statement" additivity="false">
         <level value="DEBUG"/>
     </logger>
 

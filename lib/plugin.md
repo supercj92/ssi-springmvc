@@ -1,10 +1,10 @@
 idea 插件
 ==
-grep-console
+>grep-console
 
-material-ui
+>material-ui
 
-idea settings.jar
+>idea settings.jar
 
 ###idea主题
 >Material Theme

@@ -1,6 +1,7 @@
 package com.cfysu.ssi.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.cfysu.ssi.model.Order;
 import com.cfysu.ssi.model.User;
 import com.cfysu.ssi.model.dto.QRCodeZxingDto;
 import com.cfysu.ssi.service.UserService;
@@ -20,12 +21,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.sound.midi.Soundbank;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -63,7 +66,7 @@ public class FrontPageController {
 	/**
 	 * 备忘
 	 * 1.使用ResponseBody注解返回的是纯文本，响应头里指定了Content-Type:text/html;charset=UTF-8
-	 * 	 使用流返回则不会加上面的Content-Type，会被jquery解析为json对象。可以修改@ResponseBody配置响应头application/json;charset=UTF-8
+	 * 	 使用流返回则不会加上面的Content-Type，会被jquery解析为json对象。可以修改@ResponseBody配置，设置响应头application/json;charset=UTF-8
 	 * 2.实现跨域有两种方式。一是在响应头中加Access-Control-Allow-Origin。二是使用jsonp的方式
 	 */
 
@@ -151,5 +154,12 @@ public class FrontPageController {
 			e.printStackTrace();
 		}
 		LOGGER.info("html:{}", htmlStr);
+	}
+
+	@RequestMapping("/form")
+	public ModelAndView form(User user){
+		System.out.println("order:" + JSON.toJSONString(user));
+		ModelAndView modelAndView = new ModelAndView("form");
+		return modelAndView;
 	}
 }

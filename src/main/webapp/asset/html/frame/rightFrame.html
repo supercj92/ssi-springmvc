@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rightFrame</title>
+    <link rel="stylesheet" href="../../css/zTreeStyle/2.6/zTreeStyle.css">
+</head>
+<body>
+<!--ztree-->
+<ul id="tree" class="tree"></ul>
+</body>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="../../js/lib/jquery.ztree-2.6.min.js"></script>
+<script>
+    //ztree
+    var setting = {
+        showLine: false,
+        checkable: false
+    };
+    var zn = '[{"checked": true,"nodes": [{"checked": true,"nodes": [],"id": 10,"level": 2,"name": "163","url":"http://www.163.com","target":"leftFrame"},{"checked": true,"nodes": [],"id": 10,"level": 2,"name": "QQ","url":"http://www.qq.com","target":"leftFrame"}],"level": 1,"name": "门户网站","parentId": 0,"remark": "","treepath": "","url": "#","target":"leftFrame"}]';
+    var zTreeNodes = eval(zn);
+    zTree = $("#tree").zTree(setting, zTreeNodes);
+</script>
+</html>

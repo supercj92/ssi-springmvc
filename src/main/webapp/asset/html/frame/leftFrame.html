@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>leftFrame</title>
+</head>
+<body>
+<dl>
+    <dt class="one">class1</dt>
+    <dd>item1</dd>
+    <dd>item2</dd>
+    <dd>item3</dd>
+    <dd>item4</dd>
+    <dt class="one">class2</dt>
+    <dd>item5</dd>
+    <dd>item6</dd>
+    <dd>item7</dd>
+    <dd>item8</dd>
+    <dt class="one">class3</dt>
+    <dd>item9</dd>
+    <dd>item10</dd>
+    <dd>item11</dd>
+    <dd>item12</dd>
+    <dt>class4</dt>
+</dl>
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    $('.one').toggle(function () {
+        $(this).nextUntil('dt').slideUp();
+    }, function () {
+        $(this).nextUntil('dt').slideDown();
+    });
+</script>
+</body>
+</html>
