@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <!-- 调度服务器配置 -->
+    <bean id="scheduleConfigCenter"
+          class="com.taobao.pamirs.schedule.ScheduleConfigCenterClientByDatabase">
+        <property name="dataBaseType" value="mysql"/>
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+        <property name="tableMap">
+            <map>
+                <entry key="pamirs_schedule_queue">
+                    <value>PAMIRS_SCHEDULE_QUEUE</value>
+                </entry>
+                <entry key="pamirs_schedule_server">
+                    <value>PAMIRS_SCHEDULE_SERVER</value>
+                </entry>
+                <entry key="pamirs_schedule_tasktype">
+                    <value>PAMIRS_SCHEDULE_TASKTYPE</value>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="managerFactory" class="com.taobao.pamirs.schedule.TBScheduleManagerFactory"
+          init-method="init" lazy-init="false">
+        <property name="scheduleConfigCenter">
+            <ref bean="scheduleConfigCenter"/>
+        </property>
+    </bean>
+
+    <bean id="demoTask" class="com.cfysu.ssi.tbschedule.DemoTask"
+          init-method="init" lazy-init="false" depends-on="managerFactory">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="taskType" value="demoTask"/>
+        <property name="ownSign" value="BASE"/>
+        <property name="managerFactory" ref="managerFactory"/>
+    </bean>
+</beans>

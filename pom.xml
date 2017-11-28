@@ -285,6 +285,26 @@
 			<artifactId>core</artifactId>
 			<version>3.3.0</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.taobao.pamirs.schedule</groupId>
+			<artifactId>taobao-pamirs-schedule</artifactId>
+			<version>2.0.3.6</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework</groupId>
+					<artifactId>spring</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>ojdbc14</artifactId>
+					<groupId>com.oracle</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 	</dependencies>
   <build>
     <finalName>ssi-springmvc</finalName>

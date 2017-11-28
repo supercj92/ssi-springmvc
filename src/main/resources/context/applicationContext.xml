@@ -23,4 +23,6 @@
     <import resource="classpath:context/spring-redis.xml"/>
     <!--hessian-->
     <import resource="classpath:context/spring-hessian.xml"/>
+
+    <import resource="classpath:context/tbschedule.xml"/>
 </beans>

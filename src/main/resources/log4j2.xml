@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="LOG.PATH">/export/Logs/</Property>
+        <Property name="LOG.PATTERN">%d{yy-MM-dd HH:mm:ss.SSS} %p [%t] %c - %m%n</Property>
+    </Properties>
+    <Appenders>
+       <!-- console -->      
+       <Console name="console" target="SYSTEM_OUT">
+           <PatternLayout pattern="${LOG.PATTERN}"/>
+       </Console>   
+       <!-- info -->
+       <RollingRandomAccessFile  name="infoFile" fileName="${LOG.PATH}/info.log"
+              filePattern="${LOG.PATH}/info-%i.log"
+              bufferSize="8192" immediateFlush="false" append="true" >
+            <Filters>
+              <ThresholdFilter level="error" onMatch="DENY"  onMismatch="NEUTRAL"/>
+              <ThresholdFilter level="warn"  onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+              <ThresholdFilter level="info"  onMatch="ACCEPT" onMismatch="NEUTRAL"/>
+              <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+           <Policies>
+              <SizeBasedTriggeringPolicy size="500MB" />
+           </Policies>
+           <DefaultRolloverStrategy max="10" />
+       </RollingRandomAccessFile>
+       
+       <!-- error -->
+       <RollingRandomAccessFile  name="errorFile" fileName="${LOG.PATH}/err.log"
+              filePattern="${LOG.PATH}/err-%i.log"
+              bufferSize="1024" immediateFlush="false" append="true" >
+            <Filters>
+                <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <PatternLayout pattern="${LOG.PATTERN}" />
+           <Policies>
+              <SizeBasedTriggeringPolicy size="100MB" />
+           </Policies>
+           <DefaultRolloverStrategy max="1" />
+       </RollingRandomAccessFile >
+    </Appenders>
+    <Loggers>
+       <AsyncRoot level="info">
+          <AppenderRef ref="console" />
+          <AppenderRef ref="infoFile" />
+          <AppenderRef ref="errorFile" />
+       </AsyncRoot>
+        <logger name="java.sql.Connection" level="debug" additivity="false">
+            <appenderRef ref="console"/>
+        </logger>
+        <logger name="java.sql.Statement" level="debug" additivity="false">
+            <appenderRef ref="console"/>
+        </logger>
+    </Loggers>
+</Configuration>
