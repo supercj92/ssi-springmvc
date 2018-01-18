@@ -75,6 +75,15 @@
         <url-pattern>/AsyncServlet</url-pattern>
     </servlet-mapping>
 
+	<!--接口测试工具-->
+	<servlet>
+		<servlet-name>testProxyLibra</servlet-name>
+		<servlet-class>com.cfysu.multi.libra.servlets.LibraTestProxyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>testProxyLibra</servlet-name>
+		<url-pattern>/testProxyLibra</url-pattern>
+	</servlet-mapping>
 	<!--欢迎页面-->
 	<welcome-file-list>
 		<welcome-file>/index.jsp</welcome-file>

@@ -19,8 +19,6 @@ public class OrderPipeController {
 
     @Autowired
     private OrderService orderService;
-    @Autowired
-    private ProductService productService;
 
     @RequestMapping(value = "/pipe/{customer}/{skuId}/{num}", method = {RequestMethod.GET, RequestMethod.POST})
     @ResponseBody
@@ -28,13 +26,17 @@ public class OrderPipeController {
         if(StringUtils.isEmpty(customer) || skuId == null || num ==null){
             return "入参错误";
         }
-        Integer res = orderService.pipeOrder(customer, skuId, num);
-        if(res.equals(1)){
-            return "下单成功！下单时间：" + new Date();
-        }else if (res.equals(-1)){
+        Long res = null;
+        try {
+            res = orderService.pipeOrder(customer, skuId, num);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if(res != null){
+            return "订单id" + res+ "。下单时间：" + new Date();
+        }else {
             return "库存不足！";
         }
-        return null;
     }
 
     @RequestMapping("/pipeOrder")

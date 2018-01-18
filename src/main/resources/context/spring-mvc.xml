@@ -10,7 +10,8 @@
 		http://www.springframework.org/schema/mvc
     	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-	<context:component-scan base-package="com.cfysu" />
+	<context:component-scan base-package="com.cfysu.ssi.controller" />
+
 	<mvc:resources mapping="/asset/**" location="/asset/"/>
 
 	<!-- springmvc 拦截器配置 -->
@@ -64,10 +65,10 @@
 	</bean>
 
 	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-		<property name="defaultContentType" value="text/html" />
-		<property name="mediaTypes">
-			<map><entry key="json" value="application/json" /></map>
-		</property>
+		<!--<property name="defaultContentType" value="text/html" />-->
+		<!--<property name="mediaTypes">-->
+			<!--<map><entry key="json" value="application/json" /></map>-->
+		<!--</property>-->
 		<property name="viewResolvers">
 			<list>
 				<ref bean="velocityViewResolver" />
@@ -120,6 +121,18 @@
 				<prop key="classic_compatible">true</prop>
 				<prop key="template_exception_handler">ignore</prop>
 				<!--<prop key="auto_import">/page.html as page</prop>-->
+			</props>
+		</property>
+	</bean>
+
+	<bean
+			class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="defaultErrorView" value="error/uncaught" />
+		<property name="exceptionMappings">
+			<props>
+				<prop key="com.jd.ql.cep.web.hrm.IllegalHrmPrivilegeException">error/access-denied</prop>
+				<prop key="org.springframework.web.multipart.MaxUploadSizeExceededException">error/uncaught</prop>
+				<prop key="java.lang.RuntimeException">error/uncaught</prop>
 			</props>
 		</property>
 	</bean>

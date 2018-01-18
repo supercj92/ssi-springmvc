@@ -6,7 +6,7 @@ Config 2.0/" "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
     <settings cacheModelsEnabled="true" enhancementEnabled="true"
               lazyLoadingEnabled="false" errorTracingEnabled="true" maxRequests="32"
               maxSessions="10" maxTransactions="5" useStatementNamespaces="true" />
-    <sqlMap resource="sqlmap/UserMapper.xml" />
-    <sqlMap resource="sqlmap/OrderMapper.xml"/>
-    <sqlMap resource="sqlmap/ProductMapper.xml"/>
+    <sqlMap resource="mapper/UserMapper.xml" />
+    <sqlMap resource="mapper/OrderMapper.xml"/>
+    <sqlMap resource="mapper/ProductMapper.xml"/>
 </sqlMapConfig>

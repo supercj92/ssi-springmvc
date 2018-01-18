@@ -15,7 +15,7 @@
 
 	<properties>
 		<!-- spring版本号 -->
-		<spring.version>3.1.1.RELEASE</spring.version>
+		<spring.version>3.2.0.RELEASE</spring.version>
 		<!--<spring.version>4.3.8.RELEASE</spring.version>-->
 		<!-- mybatis版本号 -->
 		<!--<mybatis.version>3.2.6</mybatis.version>-->
@@ -25,6 +25,7 @@
 		<log4j.version>1.2.17</log4j.version>
 		<junit.version>4.12</junit.version>
 		<commons-lang3.version>3.3.2</commons-lang3.version>
+		<aspectj.version>1.7.2</aspectj.version>
 	</properties>
 
 	<dependencies>
@@ -35,7 +36,7 @@
 			<!-- 表示开发的时候引入，发布的时候不会加载此包 -->
 			<!--<scope>test</scope>-->
 		</dependency>
-		<!-- spring核心包 -->
+		<!-- spring核心包 start-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -94,6 +95,8 @@
 			<!--<version>${spring.version}</version>-->
 			<version>3.1.1.RELEASE</version>
 		</dependency>
+		<!-- spring核心包 start-->
+
 		<!-- mybatis核心包 -->
 		<!--<dependency>-->
 			<!--<groupId>org.mybatis</groupId>-->
@@ -142,15 +145,6 @@
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
-		
-		
-		<!-- fastjson -->
-		<dependency>
-			<groupId>com.alibaba</groupId>
-			<artifactId>fastjson</artifactId>
-			<version>1.1.41</version>
-		</dependency>
-
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -164,16 +158,49 @@
 			<version>${slf4j.version}</version>
 		</dependency>
 		<!-- log end -->
+
 		<!-- 映入JSON -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.1.41</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>2.5.3</version>
+		</dependency>
+
+		<!--springboot-->
+		<!--内置tomcat的jar包与tomcat冲突-->
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
+
+		<!--apache commons start-->
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.3.1</version>
 		</dependency>
 		<!-- 上传组件包 -->
 		<dependency>
@@ -191,30 +218,9 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.9</version>
 		</dependency>
-		<!--springboot-->
-		<!--内置tomcat的jar包与tomcat冲突-->
-		<!--<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>-->
-		<!-- https://mvnrepository.com/artifact/commons-httpclient/commons-httpclient -->
-		<!--commons-->
-		<dependency>
-			<groupId>commons-httpclient</groupId>
-			<artifactId>commons-httpclient</artifactId>
-			<version>3.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>${commons-lang3.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-fileupload</groupId>
-			<artifactId>commons-fileupload</artifactId>
-			<version>1.3.1</version>
-		</dependency>
-		<!-- Velocity模板 -->
+		<!--apache commons end-->
+
+		<!-- Velocity模板 start-->
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
 			<artifactId>velocity</artifactId>
@@ -230,6 +236,7 @@
 			<artifactId>velocity-tools</artifactId>
 			<version>2.0</version>
 		</dependency>
+		<!-- Velocity模板 end-->
 
 		<!--freemarker依赖-->
 		<dependency>
@@ -251,7 +258,7 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		<!--spring整合MQ jms-->
+		<!--spring整合MQ jms start-->
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
 			<artifactId>activemq-all</artifactId>
@@ -262,6 +269,8 @@
 			<artifactId>spring-jms</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<!--spring整合MQ jms end-->
+
 		<!--hessian依赖-->
 		<dependency>
 			<groupId>com.caucho</groupId>
@@ -305,20 +314,56 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<!--接口测试工具 start-->
+		<dependency>
+			<groupId>com.cfysu.module</groupId>
+			<artifactId>libra</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>fastjson</artifactId>
+					<groupId>com.alibaba</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--接口测试工具 end-->
+
+		<!--springAOP所依赖的包 start-->
+		<!-- if you enable @AspectJ style AOP in spring. -->
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>${aspectj.version}</version>
+		</dependency>
+		<!--springAOP所依赖的包 end-->
 	</dependencies>
   <build>
     <finalName>ssi-springmvc</finalName>
 	  <plugins>
-			  <!-- mybatis-generator -->
-			  <plugin>
-				  <groupId>org.mybatis.generator</groupId>
-				  <artifactId>mybatis-generator-maven-plugin</artifactId>
-				  <version>1.3.2</version>
-				  <configuration>
-					  <verbose>true</verbose>
-					  <overwrite>true</overwrite>
-				  </configuration>
-			  </plugin>
+		  <plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-surefire-plugin</artifactId>
+			  <version>2.12.4</version>
+			  <configuration>
+				  <forkMode>once</forkMode>
+				  <argLine>-Dfile.encoding=UTF-8</argLine>
+			  </configuration>
+		  </plugin>
+		  <!-- mybatis-generator -->
+		  <plugin>
+			  <groupId>org.mybatis.generator</groupId>
+			  <artifactId>mybatis-generator-maven-plugin</artifactId>
+			  <version>1.3.2</version>
+			  <configuration>
+				  <verbose>true</verbose>
+				  <overwrite>true</overwrite>
+			  </configuration>
+		  </plugin>
 	  </plugins>
   </build>
 </project>

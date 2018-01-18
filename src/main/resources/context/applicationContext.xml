@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
                         http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context-3.1.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
-    <!-- 自动扫描 -->
-    <context:component-scan base-package="com.cfysu" />
+    <!-- 自动扫描 controller 由mvc子容器扫描-->
+    <context:component-scan base-package="com.cfysu.ssi" >
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <!--加载配置-->
     <context:property-placeholder location="classpath:property/jdbc.properties" ignore-unresolvable="true" />
     <context:property-placeholder location="classpath:property/redis.properties" ignore-unresolvable="true" />
 
-    <import resource="classpath:context/spring-ibatis.xml"/>
+    <!--dataSource-->
+    <import resource="classpath:context/spring-ds.xml"/>
+
+    <!--spring worker-->
     <import resource="classpath:context/spring-worker.xml"/>
-    <!--jms-->
+
+    <!--activemq-->
     <!--<import resource="classpath:context/spring-activemq-producer.xml"/>-->
     <!--<import resource="classpath:context/spring-activemq-customer.xml"/>-->
+
     <!--cache-->
-    <import resource="classpath:context/spring-redis.xml"/>
+    <!--<import resource="classpath:context/spring-redis.xml"/>-->
+
     <!--hessian-->
     <import resource="classpath:context/spring-hessian.xml"/>
 
+    <!--tbschedule-->
     <import resource="classpath:context/tbschedule.xml"/>
+
+    <!--声明式事务-->
+    <import resource="classpath:context/spring-transaction.xml"/>
+    <!--接口测试工具-->
+    <import resource="classpath*:spring-libra.xml"/>
 </beans>

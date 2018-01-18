@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ImportResource;
  *//*
 
 @EnableAutoConfiguration
-@ImportResource("classpath:spring-ibatis.xml")
+@ImportResource("classpath:spring-ds.xml")
 public class MainApplication {
     public static void main(String[] args){
         SpringApplication.run(MainApplication.class, args);

@@ -45,7 +45,7 @@
                 <li><a href="javascript:void(0)" onclick="pageControl(${totalPage-1})">${totalPage-1}</a></li>
             </#if>
             <#if (end < totalPage)>
-                <li><a href="javascript:void(0)" ${totalPage}>${totalPage}</a></li>
+                <li><a href="javascript:void(0)" onclick="pageControl(${totalPage})">${totalPage}</a></li>
             </#if>
         <#-- 数字end-->
 

@@ -33,8 +33,8 @@ public class BaseDaoImpl<E> implements BaseDao<E> {
         return (Integer) sqlMapClientTemplate.queryForObject(nameSpace + ".pageCount",entity);
     }
 
-    public long insert(E entity) {
-        return (Long)sqlMapClientTemplate.insert(nameSpace + ".insert",entity);
+    public Long insert(E entity) {
+        return (Long) sqlMapClientTemplate.insert(nameSpace + ".insert",entity);
     }
 
     public int update(E entity) {

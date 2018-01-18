@@ -11,7 +11,7 @@
 
     <insert id="insert" parameterClass="order">
         INSERT INTO ssm.ORDER(customer_name,skuId,num) VALUES (#customerName#,#skuId#,#num#)
-        <selectKey>
+        <selectKey resultClass="long">
             SELECT @@IDENTITY AS id
         </selectKey>
     </insert>

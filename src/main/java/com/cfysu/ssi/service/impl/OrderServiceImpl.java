@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.TransactionCallback;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import java.io.FileNotFoundException;
 import java.util.Date;
 
 /**
@@ -39,28 +40,54 @@ public class OrderServiceImpl implements OrderService {
     }
 
     //同时只允许一个线程操作
-    @Transactional
-    public synchronized Integer pipeOrder(String customerName, Integer skuId, Integer num) {
+    //声明式事务之基于注解
+    @Transactional(rollbackFor = Exception.class)
+    public synchronized Long pipeOrder(String customerName, Integer skuId, Integer num) {
+        return doBusiness(customerName, skuId, num);
+    }
+
+    //声明式之基于xml
+    public Long pipeOrder2(String customerName, Integer skuId, Integer num){
+        return doBusiness(customerName, skuId, num);
+    }
+
+    //使用编程式事务实现
+    public Long pipeOrder3(final String customerName, final Integer skuId, final Integer num){
+        return new TransactionTemplate(transactionManager).execute(new TransactionCallback<Long>() {
+            @Override
+            public Long doInTransaction(TransactionStatus status) {
+                try {
+                    return doBusiness(customerName, skuId, num);
+                }catch (Exception e){
+                    status.setRollbackOnly();
+                    return null;
+                }
+            }
+        });
+    }
+
+    private Long doBusiness(String customerName, Integer skuId, Integer num){
         Product product = productService.queryProductById(Long.valueOf(skuId));
         if(num > product.getStock()){
             LOGGER.info("库存不足!下单数量：{}，库存：{}",num,product.getStock());
-            return -1;
+            return null;
         }
         //1.生成订单
         Order order = new Order();
-        order.setSkuId(skuId.intValue());
+        order.setSkuId(skuId);
         order.setNum(num);
         order.setCustomerName(customerName);
         //持久化
-        insertOrder(order);
+        //insertOrder(order);
+        Long orderId = orderDao.insert(order);
 
         //2.减库存
         product.setStock(product.getStock() - num);
         //持久化
         productService.updateProductStockById(product);
 
-        return 1;
+        //抛出异常，触发事务回滚
+        //throw new RuntimeException();
+        return orderId;
     }
-
-    //TODO  使用编程式事务实现
 }

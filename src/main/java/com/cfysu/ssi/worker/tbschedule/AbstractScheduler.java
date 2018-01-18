@@ -1,4 +1,4 @@
-package com.cfysu.ssi.tbschedule;
+package com.cfysu.ssi.worker.tbschedule;
 
 import com.taobao.pamirs.schedule.IScheduleTaskDealMulti;
 import com.taobao.pamirs.schedule.TBScheduleManagerFactory;

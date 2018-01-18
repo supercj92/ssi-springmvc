@@ -1,8 +1,8 @@
 plugin:jquery.Huploadify.js
 version:1.0
-author:ÂÀ´ó±ª
+author:å•å¤§è±¹
 blog:www.cnblogs.com/lvdabao
 email:lvxiaobao1989@gmail.com
 date:2013.12.01
-desc:Ö®Ç°Ğ´¹ıÒ»¸ö½Ğhtml5uploaderµÄÉÏ´«²å¼ş£¬ÊÇÄ£·ÂuploadifyĞ´µÄ¡£Õâ´Î½«ÆäÖØ¹¹£¬ĞŞÕıÒ»Ğ©bug£¬²¢ÇÒAPIÍêÈ«ÓëuploadifyÖØºÏ£¬ºÍÎŞ·ìÓëflash°æÍ¬ÓÃ¡£
-¾ßÌåÊ¹ÓÃ·½·¨¿É²Î¿¼ÎÒµÄ²©¿Í£¬»òÕßÖ±½Ó·ÃÎÊuploadify¹ÙÍø¡£
+desc:ä¹‹å‰å†™è¿‡ä¸€ä¸ªå«html5uploaderçš„ä¸Šä¼ æ’ä»¶ï¼Œæ˜¯æ¨¡ä»¿uploadifyå†™çš„ã€‚è¿™æ¬¡å°†å…¶é‡æ„ï¼Œä¿®æ­£ä¸€äº›bugï¼Œå¹¶ä¸”APIå®Œå…¨ä¸uploadifyé‡åˆï¼Œå’Œæ— ç¼ä¸flashç‰ˆåŒç”¨ã€‚
+å…·ä½“ä½¿ç”¨æ–¹æ³•å¯å‚è€ƒæˆ‘çš„åšå®¢ï¼Œæˆ–è€…ç›´æ¥è®¿é—®uploadifyå®˜ç½‘ã€‚

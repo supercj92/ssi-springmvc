@@ -7,7 +7,7 @@
     <Appenders>
        <!-- console -->      
        <Console name="console" target="SYSTEM_OUT">
-           <PatternLayout pattern="${LOG.PATTERN}"/>
+           <PatternLayout pattern="${LOG.PATTERN}" charset="UTF-8"/>
        </Console>   
        <!-- info -->
        <RollingRandomAccessFile  name="infoFile" fileName="${LOG.PATH}/info.log"
@@ -50,6 +50,9 @@
             <appenderRef ref="console"/>
         </logger>
         <logger name="java.sql.Statement" level="debug" additivity="false">
+            <appenderRef ref="console"/>
+        </logger>
+        <logger name="com.taobao.pamirs.schedule" level="debug" additivity="false">
             <appenderRef ref="console"/>
         </logger>
     </Loggers>

@@ -9,5 +9,10 @@ public interface OrderService {
 
     long insertOrder(Order order);
 
-    Integer pipeOrder(String customerName, Integer skuId, Integer num);
+    //注解事务
+    Long pipeOrder(String customerName, Integer skuId, Integer num);
+    //xml事务
+    Long pipeOrder2(String customerName, Integer skuId, Integer num);
+    //编程事务
+    Long pipeOrder3(String customerName, Integer skuId, Integer num);
 }

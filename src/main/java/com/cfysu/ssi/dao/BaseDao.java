@@ -13,7 +13,7 @@ public interface BaseDao<E> {
 
     Integer getCount(E entity);
 
-    long insert(E entity);
+    Long insert(E entity);
 
     int update(E entity);
 
