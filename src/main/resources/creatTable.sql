@@ -5,7 +5,7 @@ CREATE TABLE `order` (
   `num` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `product` (
   `id` int(4) NOT NULL auto_increment,
@@ -13,14 +13,14 @@ CREATE TABLE `product` (
   `stock` int(4) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `user` (
   `id` int(4) NOT NULL auto_increment,
   `user_name` varchar(45) default NULL,
   `pwd` varchar(45) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #动态的造几十万数据
 CREATE  PROCEDURE CREATE_TEST_DATA(IN userName varchar(50),IN datanum INTEGER(11))
