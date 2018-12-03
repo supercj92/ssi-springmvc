@@ -278,11 +278,11 @@
 			<version>4.0.7</version>
 		</dependency>
 		<!--先将lib目录里的jar打到本地仓库-->
-		<dependency>
-			<groupId>com.cfysu</groupId>
-			<artifactId>hessian-client</artifactId>
-			<version>0.1</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.cfysu</groupId>-->
+			<!--<artifactId>hessian-client</artifactId>-->
+			<!--<version>0.1</version>-->
+		<!--</dependency>-->
 		<!--redis-->
 		<dependency>
 			<groupId>redis.clients</groupId>
@@ -315,17 +315,17 @@
 			</exclusions>
 		</dependency>
 		<!--接口测试工具 start-->
-		<dependency>
-			<groupId>com.cfysu.module</groupId>
-			<artifactId>libra</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<artifactId>fastjson</artifactId>
-					<groupId>com.alibaba</groupId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.cfysu.module</groupId>-->
+			<!--<artifactId>libra</artifactId>-->
+			<!--<version>0.0.1-SNAPSHOT</version>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<artifactId>fastjson</artifactId>-->
+					<!--<groupId>com.alibaba</groupId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
 		<!--接口测试工具 end-->
 
 		<!--springAOP所依赖的包 start-->

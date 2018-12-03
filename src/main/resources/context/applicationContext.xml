@@ -13,14 +13,14 @@
     </context:component-scan>
 
     <!--加载配置-->
-    <context:property-placeholder location="classpath:property/jdbc.properties" ignore-unresolvable="true" />
-    <context:property-placeholder location="classpath:property/redis.properties" ignore-unresolvable="true" />
+    <!--<context:property-placeholder location="classpath:property/jdbc.properties" ignore-unresolvable="true" />-->
+    <!--<context:property-placeholder location="classpath:property/redis.properties" ignore-unresolvable="true" />-->
 
-    <!--dataSource-->
-    <import resource="classpath:context/spring-ds.xml"/>
+    <!--&lt;!&ndash;dataSource&ndash;&gt;-->
+    <!--<import resource="classpath:context/spring-ds.xml"/>-->
 
-    <!--spring worker-->
-    <import resource="classpath:context/spring-worker.xml"/>
+    <!--&lt;!&ndash;spring worker&ndash;&gt;-->
+    <!--<import resource="classpath:context/spring-worker.xml"/>-->
 
     <!--activemq-->
     <!--<import resource="classpath:context/spring-activemq-producer.xml"/>-->
@@ -30,13 +30,13 @@
     <!--<import resource="classpath:context/spring-redis.xml"/>-->
 
     <!--hessian-->
-    <import resource="classpath:context/spring-hessian.xml"/>
+    <!--<import resource="classpath:context/spring-hessian.xml"/>-->
 
-    <!--tbschedule-->
-    <import resource="classpath:context/tbschedule.xml"/>
+    <!--&lt;!&ndash;tbschedule&ndash;&gt;-->
+    <!--<import resource="classpath:context/tbschedule.xml"/>-->
 
-    <!--声明式事务-->
-    <import resource="classpath:context/spring-transaction.xml"/>
-    <!--接口测试工具-->
-    <import resource="classpath*:spring-libra.xml"/>
+    <!--&lt;!&ndash;声明式事务&ndash;&gt;-->
+    <!--<import resource="classpath:context/spring-transaction.xml"/>-->
+    <!--&lt;!&ndash;接口测试工具&ndash;&gt;-->
+    <!--<import resource="classpath*:spring-libra.xml"/>-->
 </beans>
