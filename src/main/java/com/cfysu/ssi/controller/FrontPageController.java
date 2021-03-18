@@ -1,6 +1,7 @@
 package com.cfysu.ssi.controller;
 
 import com.alibaba.fastjson.JSON;
+//import com.cfysu.ssi.ConfigDO;
 import com.cfysu.ssi.model.Order;
 import com.cfysu.ssi.model.User;
 import com.cfysu.ssi.model.dto.QRCodeZxingDto;
@@ -11,6 +12,7 @@ import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,6 +47,9 @@ public class FrontPageController {
 
 	@Resource
 	private UserService userService;
+
+	//@Autowired
+	//private ConfigDO configDO;
 
 	@RequestMapping("/testIndex")
 	@ResponseBody
@@ -162,4 +167,17 @@ public class FrontPageController {
 		ModelAndView modelAndView = new ModelAndView("form");
 		return modelAndView;
 	}
+
+	@RequestMapping("pdf")
+	public ModelAndView pdf(){
+		ModelAndView modelAndView = new ModelAndView();
+		return modelAndView;
+	}
+
+	//@RequestMapping("/configDO")
+	//@ResponseBody
+	//public ConfigDO getConfig(){
+	//	LOGGER.info(configDO.toString());
+	//	return configDO;
+	//}
 }
